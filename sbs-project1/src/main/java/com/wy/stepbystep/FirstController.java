@@ -5,16 +5,16 @@ import io.micronaut.http.annotation.*;
 
 @Controller("/")
 public class FirstController {
-    private DomainService domainService;
+    private DomainRepository domainRepository;
 
-    public FirstController(DomainService domainService) {
-        this.domainService = domainService;
+    public FirstController(DomainRepository domainRepository) {
+        this.domainRepository = domainRepository;
     }
 
 
     @Get("/")
     public String getAllDomains(){
-        return domainService.convertToString();
+        return domainRepository.convertToString();
     }
 
     @Post("/new-domain")
