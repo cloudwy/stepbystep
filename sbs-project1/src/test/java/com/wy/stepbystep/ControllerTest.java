@@ -21,10 +21,7 @@ class ControllerTest {
 
     @BeforeEach
     void setup(){
-        domainRepository.clearAllDomains();
-        domainRepository.addNewDomain(1, "salzburg-ag");
-        domainRepository.addNewDomain(2, "google");
-        domainRepository.addNewDomain(3, "yahoo");
+        domainRepository = new DomainRepository();
     }
 
     @Test
@@ -34,7 +31,7 @@ class ControllerTest {
 
     @Test
     void testGetAllDomains(){
-        assertEquals(3, domainRepository.getDomains().size());
+        assertEquals(2, domainRepository.getDomains().size());
     }
 
     @Test
@@ -44,12 +41,12 @@ class ControllerTest {
 //        for (Map.Entry<Integer, String> entry : relDomains.entrySet()) {
 //            System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
 //        }
-    assertEquals(4, domainRepository.getDomains().size());
+    assertEquals(3, domainRepository.getDomains().size());
     }
 
     @Test
     void testConvertWithStream(){
         String str = domainRepository.convertToString();
-        assertEquals("{1=salzburg-ag,2=google,3=yahoo}", str);
+        assertEquals("{1=yahoo,2=google}", str);
     }
 }

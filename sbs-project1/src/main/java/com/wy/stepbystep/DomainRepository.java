@@ -1,5 +1,6 @@
 package com.wy.stepbystep;
 
+import io.micronaut.context.annotation.Prototype;
 import jakarta.inject.Singleton;
 
 import java.util.HashMap;
@@ -7,6 +8,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Singleton
+//@Prototype
 public class DomainRepository {
     private Map<Integer, String> domains = new HashMap<>();
 
